@@ -1,38 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<JdbcEntitySetup xmlns="http://www.ontimize.com/schema/jdbc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
-	catalog="" schema="${mainschema}" table="usr_user" datasource="mainDataSource"
-	sqlhandler="dbSQLStatementHandler">
+<JdbcEntitySetup
+		xmlns="http://www.ontimize.com/schema/jdbc"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+		catalog="" schema="${mainschema}" table="TUSER"
+		datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
 	<DeleteKeys>
-		<Column>usr_id</Column>
+		<Column>user_</Column>
 	</DeleteKeys>
 	<UpdateKeys>
-		<Column>usr_id</Column>
+		<Column>user_</Column>
 	</UpdateKeys>
-	<GeneratedKey>usr_id</GeneratedKey>
 	<Queries>
 		<Query id="default">
+			<ValidColumns>
+				<Column>user_</Column>
+				<Column>password</Column>
+				<Column>name</Column>
+				<Column>surname</Column>
+				<Column>email</Column>
+				<Column>nif</Column>
+				<Column>ulocation</Column>
+				<Column>userblocked</Column>
+				<Column>lastpasswordupdate</Column>
+				<Column>firstlogin</Column>
+				<Column>phone_num</Column>
+				<Column>user_photo</Column>
+			</ValidColumns>
 			<Sentence>
-                <![CDATA[
+				<![CDATA[
                     SELECT
                         #COLUMNS#
                     FROM
-                        ${mainschema}.usr_user
+                        ${mainschema}.tuser
                     #WHERE#
-                    #ORDER#
                 ]]>
 			</Sentence>
 		</Query>
 		<Query id="login">
+			<ValidColumns>
+				<Column>user_</Column>
+				<Column>password</Column>
+				<Column>name</Column>
+				<Column>surname</Column>
+				<Column>email</Column>
+				<Column>nif</Column>
+				<Column>ulocation</Column>
+				<Column>userblocked</Column>
+				<Column>lastpasswordupdate</Column>
+				<Column>firstlogin</Column>
+				<Column>phone_num</Column>
+			</ValidColumns>
 			<Sentence>
-                <![CDATA[
+				<![CDATA[
                     SELECT
-                        #COLUMNS#, usr_down_date
+                        #COLUMNS#
                     FROM
-                        ${mainschema}.usr_user
+                        ${mainschema}.tuser
                     #WHERE#
-                    #ORDER#
                 ]]>
 			</Sentence>
 		</Query>

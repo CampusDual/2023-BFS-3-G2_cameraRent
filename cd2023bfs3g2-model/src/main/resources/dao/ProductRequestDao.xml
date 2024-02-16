@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JdbcEntitySetup
+        xmlns="http://www.ontimize.com/schema/jdbc"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+        catalog="" schema="${mainschema}" table="tprequest"
+        datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+    <DeleteKeys>
+        <Column>id_prequest</Column>
+    </DeleteKeys>
+    <UpdateKeys>
+        <Column>id_prequest</Column>
+    </UpdateKeys>
+    <GeneratedKey>id_prequest</GeneratedKey>
+    <Queries>
+        <Query id="default">
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        #COLUMNS#
+                    FROM
+                        ${mainschema}.tprequest
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+        <Query id="myOutRents">
+            <AmbiguousColumns>
+                <AmbiguousColumn name="r_user" prefix="r" databaseName="tuser_user_" />
+                <AmbiguousColumn name="p_user" prefix="p" databaseName="tuser_user_" />
+                <AmbiguousColumn name="r_phone" prefix="u2" databaseName="phone_num" />
+                <AmbiguousColumn name="p_phone" prefix="u1" databaseName="phone_num" />
+
+            </AmbiguousColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        #COLUMNS#
+                    FROM
+                        ${mainschema}.tprequest r
+                        left join ${mainschema}.tproducts p
+                        on r.tproducts_id_product = p.id_product
+                        left join ${mainschema}.tuser u1
+                        on u1.user_ = p.tuser_user_
+                        left join ${mainschema}.tuser u2
+                        on u2.user_ = r.tuser_user_
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+        <Query id="rentBalance">
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        #COLUMNS#
+                    FROM
+                        ${mainschema}.vrentbalance
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+        <Query id="rentBalanceTotal">
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        #COLUMNS#
+                    FROM
+                        ${mainschema}.vrentbalancetotal
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+    </Queries>
+</JdbcEntitySetup>
