@@ -1,0 +1,14 @@
+<ng-template #templateref let-cellvalue="cellvalue" let-rowvalue="rowvalue">
+    <span *ngIf="cellvalue == 'denied'" style="color:rgb(201, 125, 53)" fxLayoutAlign="end center">
+      <mat-icon>close</mat-icon>{{ cellvalue | oTranslate}}
+    </span>
+    <span *ngIf="cellvalue == 'applied'" style="color:rgb(100, 187, 100)" fxLayoutAlign="end center">
+      <mat-icon>done</mat-icon>{{ cellvalue | oTranslate }}
+    </span>
+    <span *ngIf="cellvalue == 'pending'" style="color:rgb(221, 211, 68)" fxLayoutAlign="end center">
+        <mat-icon>remove</mat-icon>{{ cellvalue | oTranslate}}
+      </span>
+      <span *ngIf="cellvalue == 'canceled'" style="color:rgb(223, 65, 65);" fxLayoutAlign="end center">
+        <mat-icon>undo</mat-icon>{{ cellvalue | oTranslate }}
+      </span>
+  </ng-template>

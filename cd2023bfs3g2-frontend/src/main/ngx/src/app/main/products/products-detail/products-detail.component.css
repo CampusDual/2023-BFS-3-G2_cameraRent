@@ -1,0 +1,96 @@
+.container {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-color: #85a3b6;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.842);
+  position: relative;
+}
+
+.img-container {
+  display: flex;
+  border-radius: 8px;
+  height: 99%;
+  overflow: hidden;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: transparent;
+}
+
+.image {
+  height: 100%;
+  transition: transform 1s;
+}
+
+.image:hover {
+  height: 100%;
+  width: auto;
+}
+
+.data-container {
+  margin: 20px;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name-container {
+  font-size: 2em;
+  height: 25%;
+  padding-top: 5%;
+}
+
+.detail-container {
+  font-size: 1.5em;
+  text-align: left;
+  height: 60%;
+}
+
+.detail-container div {
+  margin: 10px;
+}
+
+.price-container {
+  text-align: center;
+}
+
+.price-container .number {
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.price-container .day {
+  font-size: 1.2em;
+}
+
+.price-container .simbol {
+  font-size: 1.5em;
+}
+
+.detail-container .mat-icon {
+  font-size: 100%;
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+  color: transparent;
+  text-shadow: none;
+}
+
+.close-button {
+  position: absolute;
+  top: 0px;
+  right: 4px;
+}
+
+.miBotonPersonalizado {
+  background-color: #ffa099;
+  border-radius: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}

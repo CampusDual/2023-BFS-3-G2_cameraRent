@@ -1,0 +1,16 @@
+<div mat-dialog-content class="container">
+    <o-form fxFill #form (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)"
+        service="register" entity="register" header-actions="I" show-header-navigation="no">
+
+        <o-text-input attr="user_" label="NICKNAME" required="yes"></o-text-input>
+        <o-password-input attr="password" label="PASSWORD" read-only="no" required="yes" ></o-password-input>
+        <o-text-input attr="name" label="NAME" required="yes"></o-text-input>
+        <o-text-input attr="surname" label="SURNAME" required="yes"></o-text-input>
+        <o-email-input attr="email" label="EMAIL" read-only="no" required="yes" ></o-email-input>
+        <!-- <o-text-input attr="ulocation" label="LOCATION" required="yes"></o-text-input> -->
+        <!-- <o-phone-input attr="phone_num" label="PHONE" read-only="no"required="yes"></o-phone-input> -->
+        <!-- <o-nif-input #nif attr="nif" label="NIF"  read-only="no" required="yes" ></o-nif-input> -->
+
+
+    </o-form>
+</div>

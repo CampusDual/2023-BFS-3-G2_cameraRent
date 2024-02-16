@@ -1,0 +1,38 @@
+.container {
+  height: 100%;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-container {
+  height: 40%;
+  text-align: center;
+}
+
+.img-container {
+  border-top-left-radius: 50px;
+  height: 50%;
+  width: 100%;
+}
+
+.img-container img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.table-container {
+  height: 10%;
+}
+
+.button_container {
+  display: flex;
+  height: 10%;
+  justify-content: flex-end;
+  padding: 15px;
+}
+
+.data-container {
+  padding: 10px;
+}

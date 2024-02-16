@@ -1,0 +1,6 @@
+<ng-template #templateref let-cellvalue="cellvalue" let-rowvalue="rowvalue">
+    <div class="container">
+        <mat-icon *ngIf="rowvalue.state == 'pending'" (click)="showDialog(rowvalue)">close</mat-icon>
+    </div>
+
+</ng-template>

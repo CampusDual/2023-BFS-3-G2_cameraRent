@@ -1,0 +1,8 @@
+<ng-template #templateref let-cellvalue="cellvalue" let-rowvalue="rowvalue">
+    <span *ngIf="cellvalue < 0" style="color:red;" fxLayoutAlign="end center">
+      <mat-icon>remove</mat-icon>{{cellvalue*(-1)}}€
+    </span>
+    <span *ngIf="cellvalue >= 0" style="color:green" fxLayoutAlign="end center">
+      <mat-icon>add</mat-icon>{{cellvalue }}€
+    </span>
+  </ng-template>

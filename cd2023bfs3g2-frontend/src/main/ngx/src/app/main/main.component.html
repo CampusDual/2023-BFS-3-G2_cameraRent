@@ -1,4 +1,25 @@
-<o-app-layout show-language-selector="no">
-  <o-user-info-configuration show-profile="yes"> </o-user-info-configuration>
+<o-app-layout show-language-selector="yes" sidenav-opened="no">
   <router-outlet></router-outlet>
+  <o-app-layout-header position="start"> <span><img
+        src="https://media.discordapp.net/attachments/1153576792486064158/1172154476132581396/logo_cameraRent.png?ex=655f48ec&is=654cd3ec&hm=dcca95f54e3da2138fee8ef6f96523c4722c0c6094c243ef457532a0a39efe70&="
+        class="logo"></span></o-app-layout-header>
+  <o-user-info-configuration show-settings="no"></o-user-info-configuration>
+  <o-app-layout-header position="end">
+    <button *ngIf="light" mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>light_mode</mat-icon>
+    </button>
+    <button *ngIf="!light" mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>dark_mode</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="light_mode()">
+        <mat-icon>light_mode</mat-icon>
+        <span>{{ 'LIGHT' | oTranslate}}</span>
+      </button>
+      <button mat-menu-item (click)="dark_mode()">
+        <mat-icon>dark_mode</mat-icon>
+        <span>{{ 'DARK' | oTranslate}}</span>
+      </button>
+    </mat-menu>
+  </o-app-layout-header>
 </o-app-layout>

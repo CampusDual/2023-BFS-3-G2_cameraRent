@@ -1,0 +1,21 @@
+<div fxFill>
+  <o-table class="container" auto-adjust="yes" auto-align-titles="yes" #table service="products" entity="myProduct"
+    keys="id_product"
+    columns="id_product;product_name;price;statusname;product_type;avaliable;main_photo;plocation;tuser_user_;status"
+    visible-columns="main_photo;product_name;statusname;product_type;price;avaliable" quick-filter="true"
+    filter-case-sensitive="false" columns-visibility-button="true" select-all-checkbox="true" show-buttons-text="true"
+    controls="true" show-title="true" title="{{'MYPRODUCTS' | oTranslate }}" horizontal-scroll="false"
+    auto-adjust="false" virtual-scroll="no">
+    <o-table-columns-filter columns="status;id_product;product_name"></o-table-columns-filter>
+    <o-table-column attr="main_photo" orderable="no" searchable="no" width="64px">
+      <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png" avatar="yes">
+      </o-table-cell-renderer-image>
+    </o-table-column>
+    <o-table-column attr="avaliable" title="avaliable" type="boolean" render-true-value="check_circle"
+      render-false-value="highlight_off" render-type="icon" boolean-type="boolean"></o-table-column>
+    <o-table-column attr="statusname" title="status" type="translate"></o-table-column>
+    <o-table-column attr="product_type" title="product_type" type="translate"></o-table-column>
+    <o-table-column attr="price" title="price" currency-symbol="€" type="currency"
+      currency-symbol-position="right"></o-table-column>
+  </o-table>
+</div>

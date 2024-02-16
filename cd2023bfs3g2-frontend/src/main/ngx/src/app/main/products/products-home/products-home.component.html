@@ -1,0 +1,38 @@
+
+<o-grid #grid attr="productGrid" cols="5" query-rows="15" quick-filter="false" grid-item-height="2:3"
+  insert-button="false" refresh-button="false" gutter-size="5px" fixed-header="yes" [ngStyle]="{ height: 'auto' }"
+  service="products" entity="product" keys="id_product" orderable="yes" detail-mode="none"
+  columns="id_product;product_name;price;status;product_type;avaliable;main_photo;plocation;tuser_user_;statusname;pdetails"
+  visible-columns="main_photo;product_name;price;status;product_type;avaliable;plocation"
+  sortable-columns="price:DESC;price;avaliable:DESC;avaliable">
+
+  <o-combo #bindingInput o-grid-toolbar position="start" label = "product_type" [static-data]="productTypeArray"
+    read-only="no" null-selection="no" value-column="typeText" columns="typeText" translate="yes" (onValueChange)="performSearch()" class="form-field"></o-combo>
+  <div o-grid-toolbar class="search-container0">
+
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="{{ 'SEARCH_PLACEHOLDER' | oTranslate }}"
+        (input)="performSearch()">
+      <button (click)="performSearch()">{{'SEARCH' | oTranslate}}</button>
+    </div>
+  </div>
+  <o-grid-item *ngFor="let list of grid.dataArray">
+    <o-column layout-padding class="container-item" (click)="openDetail(list)">
+      <div class="image">
+        <img src="data:image/png;base64,{{list.main_photo}}">
+      </div>
+      <div class="name">
+        <b>{{ list.product_name }}</b>
+      </div>
+      <div class="details">
+        <div class="plocation">
+          <span><mat-icon>location_on</mat-icon></span><b>{{ list.plocation }} </b>
+        </div>
+        <div class="price">
+          <b class="number">{{ list.price }}</b><b class="simbol">€</b><b class="day">/{{ 'day' |
+            oTranslate}} </b>
+        </div>
+      </div>
+    </o-column>
+  </o-grid-item>
+</o-grid>

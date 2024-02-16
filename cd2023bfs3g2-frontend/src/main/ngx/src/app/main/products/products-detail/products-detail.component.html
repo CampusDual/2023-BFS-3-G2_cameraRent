@@ -1,0 +1,40 @@
+<o-row layout-padding class="container" (onDataLoaded)="loadData($event)">
+  <div class="img-container">
+    <o-gallery class="image" [gallery-images]="galleryImages" [gallery-options]="galleryOptions"></o-gallery>
+  </div>
+  <div class="data-container">
+    <div class="name-container">
+      <b>{{ data.product_name }}</b>
+    </div>
+    <div class="detail-container">
+      <div>
+        <span>{{ 'tuser_user_' | oTranslate}}</span>
+        <b>: {{data.tuser_user_}}</b>
+      </div>
+      <div class="status">
+        <span>{{ 'status' | oTranslate}}: </span><b>{{ data.statusname | oTranslate }} </b>
+      </div>
+      <div class="product_type">
+        <span>{{ 'product_type' | oTranslate}}: </span><b>{{data.product_type | oTranslate}}</b>
+      </div>
+      <div class="plocation">
+        <span>{{ 'plocation' | oTranslate}}: </span><b>{{ data.plocation }} </b>
+      </div>
+      <div *ngIf="data.pdetails != '' && data.pdetails != null">
+        <span>{{ 'pdetails' | oTranslate}}</span>
+        <b>: {{data.pdetails}}</b>
+      </div>
+    </div>
+    <div class="price-container" *ngIf="data.price != '' && data.price != null">
+      <b class="number">{{ data.price }}</b><b class="simbol">€</b><b class="day">/{{ 'day' |
+        oTranslate}} </b>
+    </div>
+    <div class="button-container">
+      <o-button attr="bconfirm" type="BASIC" label="{{'RENT' | oTranslate }}" layout-padding (click)="openRentDialog()"
+        class="miBotonPersonalizado"></o-button>
+    </div>
+  </div>
+  <button mat-icon-button class="close-button" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+  </button>
+</o-row>

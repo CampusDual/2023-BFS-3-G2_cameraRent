@@ -1,0 +1,42 @@
+.in-container {
+  height: 90%;
+}
+
+.out-container {}
+
+.detail-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  padding-left: 125px;
+  margin: 30px;
+}
+.detail-container span{
+  width: fit-content;
+}
+
+.button-container {
+  display: inline-block;
+  justify-content: center;
+  padding-bottom: 20px;
+
+}
+.button-container o-button {
+  border-radius: 20px;
+}
+
+.button-border {
+  background-color:  #85A3B6;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.coment-container {
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.expandable-container {
+  font-size: 1.2em;
+}

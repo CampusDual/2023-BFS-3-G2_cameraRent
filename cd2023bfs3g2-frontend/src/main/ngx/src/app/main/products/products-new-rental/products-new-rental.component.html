@@ -1,0 +1,36 @@
+<o-form #form show-header="no" layout-direction="column" (onDataLoaded)="loadData($event)" class="top-container">
+    <div fxLayout="column" class="container" layout-padding>
+        <div class="title">
+            <div class="image">
+                <img src="data:image/png;base64,{{data.main_photo}}">
+            </div>
+            <div class="title-string">
+                <h1>{{data.product_name}}</h1>
+                <div class="location">
+                    <span><mat-icon>location_on</mat-icon>{{data.plocation}}</span>
+                </div>
+            </div>
+        </div>
+        <mat-form-field class="example-full-width">
+            <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" [min]="minDate"
+                placeholder="{{'CHOOSE START DATE' | oTranslate}}" [(ngModel)]="startDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker2" [min]="calcMinDateTwo()"
+                placeholder="{{'CHOOSE END DATE' | oTranslate}}" [(ngModel)]="endDate">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <o-text-input style="color:aliceblue" fxFill attr="request_text" label="request_text"></o-text-input>
+    </div>
+    <div class="button-container">
+        <o-button id="customButton" attr="bconfirm" type="BASIC" label="CONFIRM" (click)="update()"></o-button>
+        <o-button attr="cancelBtn" type="STROKED" label="CANCEL" layout-padding color="Warn"
+            (click)="closeDialog()"></o-button>
+    </div>
+    <button mat-icon-button class="close-button" (click)="closeDialog()">
+        <mat-icon>close</mat-icon>
+    </button>
+</o-form>

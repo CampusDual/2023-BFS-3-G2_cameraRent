@@ -1,0 +1,81 @@
+<mat-tab-group oTabGroup="My rentals">
+  <mat-tab label="{{'YOUR RENTAL REQUESTS' | oTranslate }}">
+    <o-column>
+      <o-table #tablein auto-align-titles="yes" service="productsRequest" entity="myProductRequest"
+        columns="main_photo;id_prequest;product_name;start_date;end_date;tproducts_id_product;state;rprice;request_text;r_user;p_user;p_phone;r_phone;rprofit"
+        visible-columns="main_photo;product_name;start_date;end_date;p_user;p_phone;rprice;state;rprofit;CANCEL"
+        query-rows="20" pageable="no" insert-button="no" delete-button="no" detail-mode="none" refresh-button="none"
+        virtual-scroll="no">
+        <o-table-column attr="product_name" title="product_name"></o-table-column>
+        <o-table-column attr="main_photo" orderable="no" searchable="no" width="64px">
+          <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png" avatar="yes">
+          </o-table-cell-renderer-image>
+        </o-table-column>
+        <o-table-column attr="product_name" title="product_name"></o-table-column>
+        <o-table-column attr="start_date" title="start_date" width="12%" type="date" format="L"></o-table-column>
+        <o-table-column attr="end_date" title="end_date" width="12%" type="date" format="L"></o-table-column>
+        <o-table-column attr="p_user" title="p_user"></o-table-column>
+        <o-table-column attr="p_phone" title="phone" type="phone" title-align="center"></o-table-column>
+        <o-table-column attr="rprice" title="price" currency-symbol="€" type="currency" currency-symbol-position="right"
+          title-align="center"></o-table-column>
+        <o-table-column attr="state" title="state" title-align="center">
+          <app-status-column-renderer></app-status-column-renderer>
+        </o-table-column>
+        <o-table-column attr="rprofit" title="COST" currency-symbol="€" type="currency" currency-symbol-position="right"
+          title-align="center">
+        </o-table-column>
+        <o-table-column max-width="10px" attr="CANCEL" title="CANCEL" icon="close" title-align="center">
+          <app-button-column-renderer (messageEvent)="cancelRequest($event)"></app-button-column-renderer>
+        </o-table-column>
+      </o-table>
+    </o-column>
+  </mat-tab>
+  <mat-tab label="{{'YOUR RENTALS' | oTranslate }}">
+    <div class="out-container">
+      <o-table #tableout show-title="true" title="{{'YOUR RENTALS' | oTranslate }}" auto-align-titles="yes"
+        service="productsRequest" entity="myProductRequestEntry" keys="id_prequest"
+        columns="main_photo;id_prequest;product_name;start_date;end_date;tproducts_id_product;state;request_text;r_user;p_user;p_phone;r_phone;rprice;rprofit"
+        visible-columns="main_photo;product_name;start_date;end_date;state;rprice;rprofit" query-rows="20" pageable="no"
+        insert-button="no" delete-button="no" detail-mode="none" refresh-button="none">
+        <o-table-column class="o-table-column-centered" attr="product_name" title="product_name"></o-table-column>
+        <o-table-column attr="main_photo" orderable="no" searchable="no" width="64px">
+          <o-table-cell-renderer-image image-type="base64" empty-image="assets/images/no-image.png" avatar="yes">
+          </o-table-cell-renderer-image>
+        </o-table-column>
+        <o-table-column attr="start_date" title="start_date" width="22%" type="date" format="L"></o-table-column>
+        <o-table-column attr="end_date" title="end_date" width="22%" type="date" format="L"></o-table-column>
+        <o-table-column attr="rprice" title="price" currency-symbol="{{'€/DAY' | oTranslate}}" type="currency"
+          currency-symbol-position="right" title-align="center"></o-table-column>
+        <o-table-column attr="rprofit" title="COST" currency-symbol="€" type="currency" currency-symbol-position="right"
+          title-align="center">
+        </o-table-column>
+        <o-table-column attr="state" title="state" class="o-table-column-centered" title-align="center">
+          <app-status-column-renderer></app-status-column-renderer>
+        </o-table-column>
+        <o-table-row-expandable icon-collapse="expand_more" icon-expand="chevron_right">
+          <ng-template let-row>
+            <div class="expandable-container">
+              <div class="detail-container">
+                <span fxFlex="20%"><mat-icon>person</mat-icon> {{row.r_user}}</span>
+                <span fxFlex="20%"><mat-icon>call</mat-icon> {{row.r_phone}}</span>
+                <div *ngIf="row.request_text != '' && row.request_text != null " class="coment-container">
+                  <strong>{{'COMMENT' | oTranslate}}: </strong>
+                  <span fxFlex="20%">{{row.request_text}}</span>
+                </div>
+              </div>
+              <div *ngIf="row.state=='pending'" fxLayout="row wrap" fxLayoutGap="14px" class="button-container">
+                <div class="button-borde">
+                  <o-button icon="check" attr="applyBtn" type="RAISED" label="Apply" layout-padding color="Primary"
+                    (click)="openDetail(row)"></o-button>
+                  <o-button icon="close" attr="denyBtn" type="RAISED" label="Deny" layout-padding color="Warn"
+                    (click)="stateUpdate(row)"></o-button>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </o-table-row-expandable>
+      </o-table>
+    </div>
+  </mat-tab>
+
+</mat-tab-group>

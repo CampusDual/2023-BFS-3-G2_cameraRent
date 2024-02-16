@@ -1,0 +1,26 @@
+.container {
+    margin: 20px;
+}
+
+.img-container {
+    padding: 10px;
+    max-width: 30%;
+    margin: 40px;
+}
+
+.hspacer {
+    height: 20%
+}
+
+.spacer {
+    width: 15px;
+}
+
+.data-container {
+    margin-top: 8%;
+}
+
+.data-container o-row {
+    padding: 10px;
+
+}

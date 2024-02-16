@@ -1,0 +1,71 @@
+.top-container {
+  position: relative;
+}
+
+.container {
+  margin: 30px;
+  height: 25%;
+  color: rgba(255, 255, 255, 0.651);
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.title-string {
+  width: 100%;
+}
+
+.title h1 {
+  margin-bottom: 0px;
+}
+
+.location {
+  width: 100%;
+  text-align: end;
+  font-size: 0.8em;
+}
+
+#customButton {
+  background-color: #ffa099;
+  border-radius: 10px;
+  color: rgba(255, 255, 255);
+}
+
+.button-container {
+  color: rgba(255, 255, 255, 0.651);
+  display: flex;
+  height: 10%;
+  justify-content: flex-end;
+  margin: 15px;
+}
+
+.image {
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.image img {
+  height: 40px;
+}
+
+.mat-focused .mat-input-element {
+  color: #ffffff;
+  caret-color: #ffffff !important;
+}
+
+.mat-form-field-underline {
+  background-color: white !important;
+}
+
+.close-button {
+  position: absolute;
+  top: 0px;
+  right: 4px;
+  color: aliceblue;
+}

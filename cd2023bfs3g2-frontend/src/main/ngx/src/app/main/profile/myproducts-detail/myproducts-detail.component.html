@@ -1,0 +1,59 @@
+<div class="container">
+  <o-form #form service="products" entity="product" keys="id_product"
+    columns="id_product;product_name;price;status;product_type;avaliable;main_photo;plocation;tuser_user_"
+    show-header-navigation="yes" header-actions="U;D">
+    <o-text-input oHidden enabled="no" attr="id_product" sql-type="INTEGER"></o-text-input>
+    <div class="product-details-container">
+      <div class="image-container">
+        <o-column class="image-container-column">
+          <o-image id="main_photo" attr="main_photo" empty-image="assets/images/no-image.png" sql-type="OTHER"
+            image-type="base64"></o-image>
+        </o-column>
+      </div>
+      <div class="image-list-container">
+        <o-column>
+          <o-list #list attr="list" title="{{'SECONDARY_IMAGES' | oTranslate}}" virtual-scroll="yes" service="products"
+            entity="productImage" parent-keys="tproducts_id_product:id_product"
+            columns="id_image;tproducts_id_product;pimage" keys="id_image" refresh-button="no" insert-button="true"
+            delete-mode="true" quick-filter="no" row-height="big" detail-mode="true" delete-button="yes"
+            selectable="yes" insert-button="yes" insert-button-floatable="yes" insert-button-position="top"
+            collapsed="true" collapsible="true" detail-mode="true">
+            <o-list-item *ngFor="let row of list.dataArray">
+              <o-list-item-card-image image="data:image/png;base64,{{row.pimage}}"
+                (click)="openZoomDialog(row)"></o-list-item-card-image>
+            </o-list-item>
+          </o-list>
+        </o-column>
+      </div>
+      <div class="detail-container">
+        <o-column class="detail-container-column">
+          <o-row>
+            <o-text-input fxFill class="input-padding" attr="product_name" required="yes"></o-text-input>
+          </o-row>
+          <o-row>
+            <o-combo fxFill attr="status" service="products" entity="productStatus" keys="id" value-column="id"
+              columns="id;status" visible-columns="status" read-only="no" required="yes" translate="yes"
+              null-selection="no"></o-combo>
+          </o-row>
+          <o-row>
+            <o-combo fxFill attr="product_type" [static-data]="productTypeArray" value-column="typeText"
+              columns="typeText" visible-columns="typeText" read-only="no" required="yes" null-selection="no"
+              translate="yes"></o-combo>
+          </o-row>
+          <o-row>
+            <o-text-input fxFill attr="plocation"></o-text-input>
+          </o-row>
+          <o-row>
+            <o-currency-input fxFill attr="price" currency-symbol="EUR" max-decimal-digits="2"></o-currency-input>
+          </o-row>
+          <o-row>
+            <o-text-input fxFill attr="pdetails"></o-text-input>
+          </o-row>
+          <o-row class="avaliable-container">
+            <o-checkbox attr="avaliable" read-only="no"></o-checkbox>
+          </o-row>
+        </o-column>
+      </div>
+    </div>
+  </o-form>
+</div>

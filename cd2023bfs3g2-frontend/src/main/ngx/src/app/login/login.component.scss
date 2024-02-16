@@ -22,14 +22,15 @@
     overflow: auto;
 
     .login-bg-container {
-      background-image: url('^assets/images/login_bg.png');
+      background-image: url(https://cdn.discordapp.com/attachments/1153576792486064158/1172508510731391047/portada.png?ex=656092a5&is=654e1da5&hm=e2513a5ad3b4581d04a01dcaad40dd55c93bf3c9a96751b48914c59c1e84f717&);
       width: calc(100% - 640px);
       background-repeat: no-repeat;
       background-size: cover;
-      background-position: center;
+      background-position: left;
       position: relative;
       z-index: 1;
     }
+
 
     .login-bg-container::before {
       content: "";
@@ -40,8 +41,8 @@
       height: 100%;
       top: 0;
       left: 0;
-      background: rgba(0, 0, 0, .1);
-      opacity: .8;
+      background: rgba(0, 0, 0, 0.1);
+      opacity: 0.8;
     }
 
     .wrapp-login {
@@ -50,6 +51,7 @@
 
       .login-inner-container {
         width: 100%;
+        background-color: #416D83;
 
         form {
           padding: 16px;
@@ -80,20 +82,24 @@
           margin: 32px 0 0;
           height: 42px;
           font-size: 16px;
+          background-color: #FFA099;
+          border-radius: 10px;
         }
 
         .dark_text {
-          color: #c5c5c5;
+          color: #aa2323;
           font-size: 9pt;
         }
 
-        .login_info,
+        .login_info {
+        }
         .title_text {
           font-size: 14px;
         }
 
         .title_text {
           font-weight: 600;
+          color: white;
         }
 
         .text {
@@ -102,8 +108,8 @@
         }
       }
     }
-
   }
+
 
   .footer-container {
     position: absolute;
@@ -113,6 +119,7 @@
     width: 100%;
     height: 40px;
     z-index: 2;
+    background-color: black;
 
     div {
       height: 40px;
@@ -123,11 +130,15 @@
         padding-right: 4px;
       }
     }
-
   }
+}
+.btnreg-container{
+  display: flex;
+  vertical-align: center;
+  justify-content: center;
 
 }
-@media(max-width:576px) {
+@media (max-width: 576px) {
   .full-page {
     .login-outer-container {
       .wrapp-login {
@@ -148,8 +159,41 @@
     .footer-container {
       div {
         margin: 0 auto;
-        place-content: center !important;
+        color: aliceblue;
+
       }
     }
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .title_page {
+    display: none;
+  }
+}
+
+.img-container {
+  text-align: left;
+  background-color: transparent !important;
+}
+
+.logo_page {
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 150px;
+  padding-top: 370px;
+  text-align: left;
+  background-color: transparent;
+
+}
+
+.title_page {
+  text-align: left;
+  margin-top: 1px;
+  font-weight: bold;
+  font-size: 1.8rem;
+  font-family: "League Spartan";
+  color: white;
+  padding-left: 20px;
+}
+

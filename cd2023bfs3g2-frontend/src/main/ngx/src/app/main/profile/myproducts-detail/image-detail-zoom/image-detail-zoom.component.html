@@ -1,0 +1,7 @@
+<div class="image-container" (onDataLoaded)="loadData($event)">
+
+    <img src="data:image/png;base64,{{data.pimage}}" class="product-image">
+        <button mat-icon-button class="close-button" (click)="closeDialog()">
+        <mat-icon>close</mat-icon>
+      </button>
+</div>

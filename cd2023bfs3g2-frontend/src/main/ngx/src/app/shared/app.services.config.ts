@@ -1,8 +1,14 @@
 export const SERVICE_CONFIG: Object = {
+  'products': {
+    'path': '/products'
+  },
   'users': {
     'path': '/users'
   },
-  permissions: {
-    'path': '/permissions'
+  'productsRequest':{
+    'path': '/productsRequest'
   },
+  'register':{
+    'path': '/register'
+  }
 };

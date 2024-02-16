@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="filter-container">
+        <o-form class="oform" #formFilter editable-detail="no" show-header="no">
+            <o-daterange-input class="calendar" show-ranges="true" attr="date"
+                label="{{ 'INPUT.BUTTON.DATERANGE' | oTranslate }}" text-input-enabled="no" read-only="no"
+                required="yes" (onChange)="queryAll()" clear-button="yes" format="LL" separator=" to " mode="desktop">
+            </o-daterange-input>
+        </o-form>
+    </div>
+    <div class="charts-container">
+        <div class="pie-container">
+            <h2>Total - {{pieMonth.firstNum | oTranslate}} {{pieMonth.first | oTranslate}} {{pieMonth.separator |
+                oTranslate}} {{pieMonth.secondNum | oTranslate}} {{pieMonth.second | oTranslate}}</h2>
+            <o-chart class="pie" #pie type="pie" layout-fill service="productsRequest" entity="myProductRequestEntry"
+                x-axis="product_name" y-axis="rprofit"></o-chart>
+            <span>Total: <b>{{pieTotal}}€</b></span>
+        </div>
+        <div class="barchart-container">
+            <h2>{{'PROFIT BY MONTH' | oTranslate}}</h2>
+            <o-chart #multiBar class="multibar" type="multiBar" layout-fill [data]="data3"></o-chart>
+        </div>
+    </div>
+</div>

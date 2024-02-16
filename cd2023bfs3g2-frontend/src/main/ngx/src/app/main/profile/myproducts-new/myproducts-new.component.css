@@ -1,0 +1,31 @@
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-container o-image{
+    max-width: 40%;
+}
+
+.detail-container {
+    height: 100%;
+    border-radius: 50px;
+    padding: 30px 60px 20px 60px;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.detail-container o-row {
+    padding: 5px 0px 5px 5px;
+}
+
+.avaliable-container {
+    padding: 5px 0px 5px 5px;
+    height: 50px;
+}

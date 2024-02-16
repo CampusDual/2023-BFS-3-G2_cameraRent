@@ -1,0 +1,38 @@
+<o-column class="container">
+    <div class="detail-container">
+        <h2>{{data.product_name| oTranslate}}</h2>
+        <div class="img-container">
+            <img src="data:image/png;base64,{{data.main_photo}}" empty-image="assets/images/no-image.png">
+        </div>
+        <div class="data-container">
+            <b>{{'profit' | oTranslate}}: </b><span>{{data.rprofit}}€ </span>
+            <p><span>{{data.start_date | date: 'dd/MM/yyyy'}}</span><b> - </b><span>{{data.end_date | date:
+                    'dd/MM/yyyy'}}</span></p>
+        </div>
+    </div>
+    <div class="table_container">
+        <o-table #table2 show-title="true" title="{{'CONFLICTED RENTS' | oTranslate }}:"
+            visible-columns="start_date;end_date;r_user;rprofit;profit_diff;change" pageable="no" insert-button="no"
+            delete-button="no" detail-mode="no" refresh-button="none" query-on-init="no" quick-filter="no"
+            pagination-controls="no" page-size-options="no" virtual-scroll="yes"
+            default-visible-columns="start_date;end_date;r_user;rprofit;profit_diff;change">
+            <o-table-column attr="change" title="change" type="action" icon="swap_horiz"
+                (onClick)="openDetail($event)"></o-table-column>
+            <o-table-column attr="r_user" title="r_user" type="text" width="15%"
+                content-align="center"></o-table-column>
+            <o-table-column attr="start_date" title="start_date" type="date" format="L"></o-table-column>
+            <o-table-column attr="end_date" title="end_date" type="date" format="L"></o-table-column>
+            <o-table-column width="15%" attr="rprofit" title="profit" currency-symbol="€" type="currency"
+                currency-symbol-position="right"></o-table-column>
+            <o-table-column attr="profit_diff" title="profit_diff" content-align="center">
+                <app-profit-dif-column-renderer></app-profit-dif-column-renderer>
+            </o-table-column>
+        </o-table>
+    </div>
+    <div class="button_container">
+        <o-button attr="bconfirm" type="RAISED" layout-padding color="Accent" label="APPLY REQUEST" layout-padding
+            (click)="updateState()"></o-button>
+        <o-button attr="bcancel" type="STROKED" layout-padding color="Warn" label="CANCEL" layout-padding
+            (click)="closeDialog()"></o-button>
+    </div>
+</o-column>
